@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Khám phá Hệ Mặt Trời</title>
+  <meta name="description" content="Khám phá các hành tinh, vệ tinh tự nhiên, vệ tinh nhân tạo và rác vũ trụ trong mô hình 3D tương tác." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="viewport"></div>
+  <div id="fade"></div>
+
+  <header class="topbar">
+    <button class="brand" id="brand" type="button">
+      <span class="brand-dot"></span><span data-i18n="appTitle"></span>
+    </button>
+    <nav class="modes" role="tablist">
+      <button type="button" data-mode="solar"><span class="full" data-i18n="navSolar"></span><span class="short" data-i18n="navSolarShort"></span></button>
+      <button type="button" data-mode="earth"><span class="full" data-i18n="navEarthOrbit"></span><span class="short" data-i18n="navEarthOrbitShort"></span></button>
+      <button type="button" data-mode="interact"><span class="full" data-i18n="navInteract"></span><span class="short" data-i18n="navInteractShort"></span></button>
+      <button type="button" data-mode="starlink">Starlink</button>
+    </nav>
+    <button type="button" id="focusBtn" class="icon-btn focus-btn" aria-pressed="false">⛶</button>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang="vi">VI</button>
+      <button type="button" data-lang="en">EN</button>
+    </div>
+  </header>
+
+  <aside id="sidebar" class="glass">
+    <button type="button" id="sidebarHide" class="edge-btn" data-hide="sidebar">‹</button>
+    <button type="button" id="backBtn" class="back-btn">← <span data-i18n="back"></span></button>
+    <h2 class="side-title" data-i18n="bodies"></h2>
+    <ul id="bodyList" class="body-list"></ul>
+  </aside>
+
+  <section id="panel" class="glass" aria-live="polite">
+    <button type="button" class="panel-toggle" id="panelToggle" aria-label="Toggle panel"></button>
+    <button type="button" id="panelHide" class="edge-btn" data-hide="panel">›</button>
+    <div id="panelContent"></div>
+  </section>
+
+  <button type="button" id="sidebarShow" class="reopen reopen-left glass" data-show="sidebar">☰ <span data-i18n="bodies"></span></button>
+  <button type="button" id="panelShow" class="reopen reopen-right glass" data-show="panel"><span data-i18n="infoPanel"></span> ‹</button>
+
+  <footer id="timebar" class="glass">
+    <button type="button" id="playBtn" class="icon-btn" aria-label="Play/Pause">❚❚</button>
+    <button type="button" id="slowerBtn" class="icon-btn" aria-label="Slower">−</button>
+    <span id="speedLabel" class="speed"></span>
+    <button type="button" id="fasterBtn" class="icon-btn" aria-label="Faster">+</button>
+    <span id="dateLabel" class="date"></span>
+    <button type="button" id="nowBtn" class="chip" data-i18n="now"></button>
+  </footer>
+
+  <p id="hint" class="hint" data-i18n="hintDrag"></p>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
